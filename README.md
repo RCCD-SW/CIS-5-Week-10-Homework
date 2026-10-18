@@ -50,8 +50,13 @@ No classes. No globals unless we say so — we won’t.
 - Discussions (every week): first post Friday, replies Sunday
 - Late: course policy (−10%/day unless stated otherwise)
 
-## Rubric
-Graded on: it runs, it meets the prompt, output is labeled, and the GitHub repo plus demo video are there.
+## Rubric (100)
+
+| Criterion | Pts |
+|-----------|----:|
+| Code submitted that does the work | 50 |
+| Video explanation | 50 |
+
 
 ## Getting started
 
