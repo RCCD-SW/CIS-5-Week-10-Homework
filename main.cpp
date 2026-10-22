@@ -1,32 +1,44 @@
 #include <iostream>
 
 // Practice 10 — Your Name
-// CIS 5 Week 10 · Menu + helpers
+// CIS 5 Week 10 · Gradebook tools
 
-void printMenu() {
-  std::cout << "1) Average  2) High  3) Quit\n";
+void printScores(const int scores[], int n) {
+  for (int i = 0; i < n; i++) std::cout << scores[i] << " ";
+  std::cout << "\n";
 }
 
-double average(const int a[], int n) {
-  // TODO: return the average (guard n == 0)
-  return 0.0;
+void curve(int scores[], int n, int points) {
+  // TODO: add points to every score
 }
 
-int high(const int a[], int n) {
-  // TODO: return the max (seed from a[0])
-  return a[0];
+void minMax(const int scores[], int n, int& lo, int& hi) {
+  // TODO: start lo and hi at scores[0], then check the rest
+}
+
+bool findScore(const int scores[], int n, int target, int* where) {
+  // TODO: when scores[i] == target, write i through where
+  //       (only if where != nullptr) and return true
+  return false;
 }
 
 int main() {
+  int scores[5] = {72, 88, 95, 60, 81};
   const int N = 5;
-  int scores[N] = {88, 92, 70, 95, 81};
-  int choice = 0;
 
-  do {
-    printMenu();
-    std::cin >> choice;
-    // TODO: call average / high; keep main thin
-  } while (choice != 3);
+  std::cout << "Before: ";
+  printScores(scores, N);
 
+  int lo = 0, hi = 0;
+  minMax(scores, N, lo, hi);
+  std::cout << "Low: " << lo << "  High: " << hi << "\n";
+
+  curve(scores, N, 5);
+  std::cout << "After curve +5: ";
+  printScores(scores, N);
+
+  int at = -1;
+  if (findScore(scores, N, 100, &at)) std::cout << "100 found at index " << at << "\n";
+  if (!findScore(scores, N, 50, nullptr)) std::cout << "50 not found\n";
   return 0;
 }

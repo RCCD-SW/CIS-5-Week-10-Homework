@@ -1,7 +1,8 @@
-# Practice 10 · Menu + helpers
+# Practice 10 · Gradebook tools
 
-**Week 10 · Functions**  
-**Theme:** Name the process
+**Week 10 · Pointers & References**  
+**Theme:** Change data through a function  
+**Due:** Monday night. This assignment is not due Sunday.
 
 
 ## Demo video (required)
@@ -9,41 +10,62 @@
 Paste a link to a short video of you running this assignment (tool + code + run).
 Work without a working video link is incomplete.
 
+The video is half the grade. Show the run, then explain which variables each function changed and why.
+
 **Your demo:** _add your link here_
 
 
 ## What to build
-A repeating menu. Each choice calls a function. At least one function returns a value. `main` wires the loop.
+
+Three small functions that work on one array of scores. Each function receives its data a different way: an array, references, and a pointer. `main` prints the scores before and after so you can see what changed.
+
+| Function | Receives | Job |
+|----------|----------|-----|
+| `void curve(int scores[], int n, int points)` | an array | Add `points` to every score. Main's array changes. |
+| `void minMax(const int scores[], int n, int& lo, int& hi)` | references | Store the lowest and highest score in main's `lo` and `hi`. |
+| `bool findScore(const int scores[], int n, int target, int* where)` | a pointer | If `target` is found, write its index through `where` and return `true`. If `where` is `nullptr`, only return `true` or `false`. |
 
 ## Requirements
-- Menu loop until quit
-- Each real choice calls a named function
-- At least one function returns a value (score, average, converted number)
-- README names each function in one line
-- No classes
+
+- Use the three signatures above exactly
+- `curve` must change main's array. Print the array before and after
+- `minMax` returns nothing. Its answers come back through `int& lo` and `int& hi`
+- `findScore` writes through `*where` only when `where != nullptr`
+- Pass the size `n` with every array. Do not use `sizeof` inside a function
+- Use `const` on array parameters the function only reads
+- README: one sentence for each function saying how its data gets in and out
 
 ## Sample session
+
 ```
-1) Average  2) High  3) Quit
-Choice: 1
-Average: 85.2
-1) Average  2) High  3) Quit
-Choice: 3
+Before: 72 88 95 60 81
+Low: 60  High: 95
+After curve +5: 77 93 100 65 86
+100 found at index 2
+50 not found
 ```
 
 ## Starter
-`main.cpp` — or refactor Lab 10 into a menu.
+
+`main.cpp` has the three signatures and a `main` that calls them. Put your name in the file-top comment, then fill in the bodies.
+
+## Environment
+
+VS 2022 · **GitHub Codespaces** · Replit · library machines
 
 ## Deliverables
+
 1. Course-visible GitHub repo
-2. README names the functions
-3. Short demo video (tool + code + run)
+2. README with the three sentences
+3. Short demo video: show the run, then explain which variables each function changed and why
 4. Canvas links
 
 ## Scope fence
-No classes. No globals unless we say so — we won’t.
+
+No `new` / `delete`. No pointer arithmetic beyond `a[i]`. No double pointers.
 
 ## Integrity
+
 - AI = tutor, not ghostwriter
 - Fake ownership → zero
 - Due: Monday night (not Sunday)
@@ -56,7 +78,6 @@ No classes. No globals unless we say so — we won’t.
 |-----------|----:|
 | Code submitted that does the work | 50 |
 | Video explanation | 50 |
-
 
 ## Getting started
 
